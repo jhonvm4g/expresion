@@ -1,0 +1,138 @@
+<div class="wallpaperLogin containerLogin">
+    <div class="col-12 justify-content-center">
+        <div class="col-11 col-sm-6">
+            <div class="col-lg-12 login-form">
+                <div class="col-lg-12 login-form">
+
+                    <div class="col-md-12">
+
+                        <fieldset class="reset" style="border-radius: 10px;">
+                            <legend class="reset" style="font-family: sans-serif; font-size: 20px;">
+                                <mat-icon>border_color</mat-icon>Registrarme
+                            </legend>
+
+                            <div class="row mt-2">
+                                    <div class="col-md-6">
+                                        <mat-form-field class="example-full-width" appearance="outline" fxFill>
+                                            <mat-label>Nombre</mat-label>
+                                            <input [(ngModel)]="expresionInteresUsuario.nombreUsuario" matInput placeholder="Ingrese su nombre" />
+
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <mat-form-field class="example-full-width" appearance="outline" fxFill>
+                                            <mat-label>Apellidos</mat-label>
+                                            <input [(ngModel)]="expresionInteresUsuario.apellidosUsuario" matInput placeholder="Ingrese sus apellidos" />
+                                        </mat-form-field>
+                                    </div>
+                            </div>
+
+                            
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width" [appearance]="'outline'">
+                                        <mat-label>Tipo de documento</mat-label>
+                                        <mat-select [(ngModel)]="expresionInteresUsuario.idTipoDocumento" >
+                                            <mat-option value="1">Carnet de extranjeria</mat-option>
+                                            <mat-option value="2">DNI</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width" appearance="outline" fxFill>
+                                        <mat-label>Número de documento</mat-label>
+                                        <input [(ngModel)]="expresionInteresUsuario.numeroDocumento" matInput placeholder="Ingrese su número de documento" />
+                                    </mat-form-field>
+                                </div>
+                        </div>
+
+
+
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width" appearance="outline" fxFill>
+                                        <mat-label>Email-Contacto</mat-label>
+                                        <input [(ngModel)]="expresionInteresUsuario.emailContacto" matInput placeholder="Ingrese su correo" />
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width" appearance="outline" fxFill>
+                                        <mat-label>Contraseña</mat-label>
+                                        <input [(ngModel)]="expresionInteresUsuario.password" type="password" matInput placeholder="Ingrese una nueva contraseña" />
+                                    </mat-form-field>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width" appearance="outline" fxFill>
+                                        <mat-label>Nombre de Empresa</mat-label>
+                                        <input [(ngModel)]="expresionInteresUsuario.nombreEmpresa" matInput placeholder="Ingrese nombre de la empresa" />
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width" appearance="outline" fxFill>
+                                        <mat-label>Dirección-Empresa</mat-label>
+                                        <input [(ngModel)]="expresionInteresUsuario.direccion" matInput placeholder="Ingrese la dirección de la empresa" />
+                                    </mat-form-field>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width" appearance="outline" fxFill>
+                                        <mat-label>Email-Empresa</mat-label>
+                                        <input [(ngModel)]="expresionInteresUsuario.emailEmpresa" matInput placeholder="Ingrese el correo de la empresa" />
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width" appearance="outline" fxFill>
+                                        <mat-label>Teléfono</mat-label>
+                                        <input numbersOnly [(ngModel)]="expresionInteresUsuario.telefono" matInput placeholder="Ingrese su teléfono" />
+                                    </mat-form-field>
+                                </div>
+                            </div>
+      
+
+
+                            <div class="row" style="justify-content: end; display: flex; margin-top: 10px;">
+
+                                <div class="col-md-3">
+
+                                    <button (click)="regresar();" mat-raised-button color="primary">
+                                        <mat-icon>navigate_before</mat-icon>
+                                        Regresar</button>
+
+                                </div>
+
+                                <div class="col-md-3">
+
+                                    <button (click)="registrarUsuario();" mat-raised-button color="primary">
+                                        <mat-icon>
+                                            save
+                                        </mat-icon>
+                                        Registrar</button>
+
+                                </div>
+
+                            </div>
+
+
+
+
+                        </fieldset>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

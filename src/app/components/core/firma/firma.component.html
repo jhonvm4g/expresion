@@ -1,0 +1,294 @@
+<div class="col-md-12">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" (click)="regresar();">LOGO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a (click)="misPostulaciones();" class="nav-link">Procesos</a>
+        </li>
+        <li class="nav-item">
+          <a (click)="misProcesos();" class="nav-link">Mis Postulaciones</a>
+        </li>
+        <li (click)="logOut();" class="nav-item">
+          <a class="nav-link">Cerrar Sesión</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div class="container mt-3" style="text-align: center;">
+
+<div class="row">
+<h1>Versión Preliminar</h1>
+</div>
+
+</div>
+
+<div class="container mt-1">
+
+  <fieldset class="reset" style="border-radius: 10px;">
+    <legend class="reset" style="font-family: sans-serif; font-size: 20px;">Datos generales
+    </legend>
+
+
+    <div class="row" style="margin-top: 15px;">
+      <div class="col-md-12">
+        <mat-label>Usuario: consultor179@proinversion.gob.pe</mat-label>
+      </div>
+
+    </div>
+
+  </fieldset>
+
+</div>
+
+
+<div class="container mt-3">
+  General
+  <table class="default" style="width: 100%;">
+
+    <tr>
+  
+      <th>N.</th>
+  
+      <th>Experiencia</th>
+  
+      <th>Cliente</th>
+
+      <th>Nombre del proyecto</th>
+
+      <th>Descripción del Servicio (2)</th>
+
+      <th>Tipo de Infraestructura (3)</th>
+
+      <th>Tipología de estudio</th>
+
+      <th>Código único de inversión</th>
+
+      <th>Criterios</th>
+  
+    </tr>
+  
+    <tr>
+  
+      <td> <br> </td>
+  
+      <td> </td>
+  
+      <td> </td>
+
+      <td> </td>
+  
+      <td> </td>
+  
+      <td> </td>
+
+      <td> </td>
+  
+      <td> </td>
+  
+      <td> </td>
+  
+    </tr>
+  
+
+  
+  </table>
+</div>
+
+<div class="container mt-3">
+  Criterio 1
+  <table class="default" style="width: 100%;">
+
+    <tr>
+  
+      <th>N.</th>
+  
+      <th>Nombre del proyecto</th>
+  
+      <th>Monto de inversión del proyecto (S/.)</th>
+
+      <th>Fecha de adjudicación (5)</th>
+
+      <th>Facturación del servicio (6)</th>
+
+      <th>Composicion del consorcio (7)</th>
+
+      <th>Personas de contacto del cliente (8)</th>
+  
+    </tr>
+  
+    <tr>
+  
+      <td> <br> </td>
+  
+      <td> </td>
+  
+      <td> </td>
+
+      <td> </td>
+  
+      <td> </td>
+  
+      <td> </td>
+
+      <td> </td>
+  
+    </tr>
+  
+
+  
+  </table>
+</div>
+
+<div class="container mt-3">
+  Criterio 2
+  <table class="default" style="width: 100%;">
+
+    <tr>
+  
+      <th>N.</th>
+  
+      <th>Nombre del proyecto</th>
+  
+      <th>Fecha de inicio del servicio</th>
+
+      <th>Fecha de culminación del servicio</th>
+
+      <th>Número de habitantes beneficiarios (5)</th>
+
+      <th>Componentes del proyecto (6)</th>
+ 
+    </tr>
+  
+    <tr>
+  
+      <td> <br> </td>
+  
+      <td> </td>
+  
+      <td> </td>
+
+      <td> </td>
+  
+      <td> </td>
+  
+      <td> </td>
+  
+    </tr>
+  
+
+  
+  </table>
+</div>
+
+<div class="container mt-3">
+  Criterio 3
+  <table class="default" style="width: 100%;">
+
+    <tr>
+  
+      <th>N.</th>
+  
+      <th>Nombre del proyecto</th>
+  
+      <th>Caudal promedio de diseño (l/s) (5)</th>
+
+      <th>Módulos de tratamiento empleados (6)</th>
+
+      <th>Componentes del proyecto (7)</th>
+  
+    </tr>
+  
+    <tr>
+  
+      <td> <br> </td>
+  
+      <td> </td>
+  
+      <td> </td>
+
+      <td> </td>
+  
+      <td> </td>
+  
+    </tr>
+  
+
+  
+  </table>
+</div>
+
+
+<div class="container mt-3">
+
+  
+
+  <div class="row col-6">
+    <div class="col-md-9">
+      <input class="form-control" type="file" name="" id="inputFile1">
+    </div>
+    <div class="col-md-3">
+
+      <button (click)="previewData()" mat-raised-button color="primary">
+        <mat-icon>upload</mat-icon>
+        Cargar</button>
+
+    </div>
+  </div>
+</div>
+
+<div class="container mt-2">
+
+  <div class="row col-md-6">
+
+    <!-- foto -->
+    <!-- <div class="col-12 col-sm-6">
+      <div class="mb-2" style="text-align: start;">
+        <label class="form-label">Visualizar firma</label>
+      </div>
+      <img id="img1" style="width: 380px; height: 200px;"><br/>
+    </div> -->
+</div>
+
+</div>
+
+
+
+
+
+<div class="container" style="justify-content: end; display: flex; margin-top: 10px;">
+
+  
+
+  <div class="col-md-2">
+
+    <button (click)="regresar();" mat-raised-button color="primary">
+      <mat-icon>navigate_before</mat-icon>
+      Regresar</button>
+
+  </div>
+
+  <div class="col-md-2" style="margin-left: 5px;">
+
+    <button (click)="openDialog()" mat-raised-button color="primary">
+      <mat-icon>picture_as_pdf</mat-icon>
+      Descargar Formato</button>
+
+  </div>
+
+  <div class="col-md-2" style="margin-left: 5px;">
+
+    <button (click)="openDialog()" mat-raised-button color="primary">
+      <mat-icon>navigate_next</mat-icon>
+      Continuar</button>
+
+  </div>
+
+</div>

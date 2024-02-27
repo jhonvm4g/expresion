@@ -1,0 +1,97 @@
+<div class="col-md-12">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" (click)="regresar();">LOGO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a (click)="misPostulaciones();" class="nav-link">Procesos</a>
+        </li>
+        <li class="nav-item">
+          <a (click)="misProcesos();" class="nav-link">Mis Postulaciones</a>
+        </li>
+        <li (click)="logOut();" class="nav-item">
+          <a class="nav-link">Cerrar Sesión</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+
+<div class="container" style="margin-top: 20px;">
+
+  <fieldset class="reset" style="border-radius: 10px;">
+    <legend class="reset" style="font-family: sans-serif; font-size: 20px;">Datos generales
+    </legend>
+
+
+    <div class="row" style="margin-top: 15px;">
+      <div class="col-md-12">
+        <mat-label>Usuario: consultor179@proinversion.gob.pe</mat-label>
+      </div>
+
+    </div>
+
+  </fieldset>
+
+</div>
+
+<div class="container mt-3">
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Proceso </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Nro">
+        <th mat-header-cell *matHeaderCellDef> Nro</th>
+        <td mat-cell *matCellDef="let element"> {{element.Nro}} </td>
+      </ng-container>
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef> Fecha </th>
+        <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Descargar">
+        <th mat-header-cell *matHeaderCellDef> Descargar </th>
+        <mat-cell *matCellDef="let element">
+          <button mat-icon-button color="edit" matTooltip="Descargar">
+            <mat-icon>picture_as_pdf</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+
+</div>
+
+
+<div class="container" style="justify-content: end; display: flex; margin-top: 10px;">
+
+  
+
+  <div class="col-md-2">
+
+    <button (click)="regresar();" mat-raised-button color="primary">
+      <mat-icon>navigate_before</mat-icon>
+      Regresar</button>
+
+  </div>
+
+</div>

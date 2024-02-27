@@ -1,0 +1,283 @@
+<div class="container mt-2" style="justify-content: end; display: flex;">
+
+    <div class="col-md-1">
+        <button (click)="regresar();" mat-raised-button color="primary">
+            <mat-icon>navigate_before</mat-icon>
+            Atrás</button>
+    </div>
+
+    <div class="col-md-1" style="margin-left: 5px;">
+        <button (click)="registrarFormulario();" id="btnGrabar" mat-raised-button color="primary">
+            <mat-icon>save</mat-icon>
+            Grabar</button>
+    </div>
+</div>
+
+<div class="container">
+    <fieldset class="reset" style="border-radius: 10px;">
+        <legend class="reset" style="font-family: sans-serif; font-size: 20px;">Datos generales
+        </legend>
+        <div class="row" style="margin-top: 15px;">
+            <div class="col-md-4">
+                <mat-form-field class="example-full-width" [appearance]="'outline'">
+                    <mat-label>Cliente</mat-label>
+                    <input type="text" [(ngModel)]="formulario.nombreCliente" placeholder="Ingrese el cliente" matInput>
+                </mat-form-field>
+            </div>
+            <div class="col-md-8">
+                <mat-form-field class="example-full-width" [appearance]="'outline'">
+                    <mat-label>Nombre del proyecto</mat-label>
+                    <input type="text" [(ngModel)]="formulario.nombreProyecto"
+                        placeholder="Ingrese el nombre del proyecto" matInput>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-4">
+                <fieldset class="reset" style="border-radius: 10px;">
+                    <legend class="reset" style="font-family: sans-serif; font-size: 15px;">Experiencia
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <section class="example-section">
+                                <mat-checkbox (change)="selectExperiencia($event);" class="example-margin">Perú</mat-checkbox>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <mat-form-field class="example-full-width" [appearance]="'outline'" >
+                                <mat-label>Extranjera (1)</mat-label>
+                                <mat-select [(ngModel)]="formulario.idTipoExperiencia" [disabled]="inputCriterio1_extranjera">
+                                    <mat-option *ngFor="let item of listPaises" value="{{item.idPais}}">{{ item.nombre }}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="col-md-8">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Descripción del Servicio (2)</mat-label>
+                    <textarea [(ngModel)]="formulario.descripcionServicio" matInput cols="35" rows="5"></textarea>
+                </mat-form-field>
+            </div>
+
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <div class="col-md-12">
+                    <mat-form-field class="example-full-width" [appearance]="'outline'">
+                        <mat-label>Tipo de Infraestructura (3)</mat-label>
+                        <input [(ngModel)]="formulario.tipoInfraestructura" type="text" placeholder="" matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12">
+                    <mat-form-field class="example-full-width" [appearance]="'outline'">
+                        <mat-label>Código Único de Inversión (4)</mat-label>
+                        <input [(ngModel)]="formulario.cui" type="text" placeholder="" matInput>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <fieldset class="reset" style="border-radius: 10px;">
+                    <legend class="reset" style="font-family: sans-serif; font-size: 15px;">Tipología de Estudio
+                    </legend>
+                    <div class="row">
+                        <div class="row col-md-12">
+                            <section class="example-section">
+                                <mat-radio-group [(ngModel)]="formulario.idTipologia">
+                                    <mat-radio-button (change)="selectTipologia($event);" class="example-margin"
+                                        value=1>Perfil</mat-radio-button>
+                                    <mat-radio-button (change)="selectTipologia($event);" class="example-margin"
+                                        value=2>Estudio definitivo</mat-radio-button>
+                                    <mat-radio-button (change)="selectTipologia($event);" class="example-margin"
+                                        value=3>Otros</mat-radio-button>
+                                </mat-radio-group>
+                            </section>
+                        </div>
+                        <div [hidden]="tipoDescripcion" class="col-md-12">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Descripción</mat-label>
+                                <textarea [(ngModel)]="formulario.descripcionTipologia" matInput cols="35" rows="5"></textarea>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </fieldset>
+</div>
+
+<div class="container mt-2">
+    <section class="example-section">
+        <mat-checkbox (change)="activarCriterio1($event)" class="example-margin">Aplica para criterio 1</mat-checkbox>
+    </section>
+</div>
+
+<div class="container">
+    <fieldset class="reset" style="border-radius: 10px;">
+        <legend class="reset" style="font-family: sans-serif; font-size: 20px;">Criterio 1
+        </legend>
+        <div class="row mt-3">
+            <div class="col-md-3">
+                <mat-form-field class="example-full-width" [appearance]="'outline'">
+                    <mat-label>Monto de inversión del Proyecto S/.</mat-label>
+                    <input DecimalNumber [disabled]="inputCriterio1_montoInversion" [(ngModel)]="formulario.criterio1MontoInversion"
+                        type="text" placeholder="" matInput>
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="example-full-width" [appearance]="'outline'">
+                    <mat-label>Fecha de adjudicación (5)</mat-label>
+                    <input matInput [disabled]="inputCriterio1_fechaAdjudicacion"
+                        [(ngModel)]="formulario.criterio1FechaAdjudicacion" [matDatepicker]="picker3">
+                    <mat-hint>DD/MM/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker3">
+                        <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #picker3></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="example-full-width" [appearance]="'outline'">
+                    <mat-label>Facturación de servicio (S/.)(6)</mat-label>
+                    <input DecimalNumber type="text" [disabled]="inputCriterio1_facturacionServicio"
+                        [(ngModel)]="formulario.criterio1Facturacion" placeholder="" matInput>
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="example-full-width" [appearance]="'outline'">
+                    <mat-label>Composición del consorcio (7)</mat-label>
+                    <input type="text" [disabled]="inputCriterio1_composicion"
+                        [(ngModel)]="formulario.criterio1Composicion" placeholder="" matInput>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <mat-form-field class="example-full-width" [appearance]="'outline'">
+                    <mat-label>Personas de contacto del Cliente (8)</mat-label>
+                    <input type="text" [disabled]="inputCriterio1_personasContacto"
+                        [(ngModel)]="formulario.criterio1Contactos" placeholder="" matInput>
+                </mat-form-field>
+            </div>
+            <mat-label style="color: red;">*Ingresar nombre, empresa, email y teléfono separado por ";"</mat-label>
+        </div>
+    </fieldset>
+</div>
+
+<div class="container mt-2">
+    <section class="example-section">
+        <mat-checkbox (change)="activarCriterio2($event)" class="example-margin">Aplica para criterio 2</mat-checkbox>
+    </section>
+</div>
+
+<div class="container">
+    <fieldset class="reset" style="border-radius: 10px;">
+        <legend class="reset" style="font-family: sans-serif; font-size: 20px;">Criterio 2
+        </legend>
+        <div class="row">
+            <div class="col-md-4 mt-3">
+                <fieldset class="reset" style="border-radius: 10px;">
+                    <legend class="reset" style="font-family: sans-serif; font-size: 15px;">Fecha de inicio del servicio
+                    </legend>
+                    <mat-form-field class="example-full-width" [appearance]="'outline'">
+
+                        <input matInput [disabled]="inputCriterio2_fechaInicio"
+                            [(ngModel)]="formulario.criterio2FechaInicio" [matDatepicker]="picker"
+                            placeholder="Ingrese la fecha">
+                        <mat-hint>DD/MM/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker">
+                            <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </fieldset>
+            </div>
+
+            <div class="col-md-4 mt-3">
+                <fieldset class="reset" style="border-radius: 10px;">
+                    <legend class="reset" style="font-family: sans-serif; font-size: 15px;">Fecha de culminación del
+                        servicio
+                    </legend>
+                    <mat-form-field class="example-full-width" [appearance]="'outline'">
+
+                        <input matInput [disabled]="inputCriterio2_fechaCulminacion"
+                            [(ngModel)]="formulario.criterio2FechaCulminacion" [matDatepicker]="picker2"
+                            placeholder="Ingrese la fecha">
+                        <mat-hint>DD/MM/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker2">
+                            <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                    </mat-form-field>
+                </fieldset>
+            </div>
+
+
+        </div>
+
+        <div class="row mt-3">
+
+            <div class="col-md-4">
+                <mat-form-field class="example-full-width" [appearance]="'outline'">
+                    <mat-label>Número de habitantes beneficiarios (5)</mat-label>
+                    <input numbersOnly type="text" [disabled]="inputCriterio2_numeroHabitantes"
+                        [(ngModel)]="formulario.criterio2NumeroHabitantes" placeholder="" matInput>
+                </mat-form-field>
+            </div>
+            <div class="col-md-8">
+                <mat-form-field class="example-full-width" [appearance]="'outline'">
+                    <mat-label>Componentes del proyecto (6)</mat-label>
+                    <input type="text" [disabled]="inputCriterio2_componentes"
+                        [(ngModel)]="formulario.criterio2Componentes" placeholder="" matInput>
+                </mat-form-field>
+            </div>
+        </div>
+
+    </fieldset>
+</div>
+
+<div class="container mt-2">
+    <section class="example-section">
+        <mat-checkbox (change)="activarCriterio3($event)" class="example-margin">Aplica para criterio 3</mat-checkbox>
+    </section>
+</div>
+
+<div class="container pb-5">
+    <fieldset class="reset" style="border-radius: 10px;">
+        <legend class="reset" style="font-family: sans-serif; font-size: 20px;">Criterio 3
+        </legend>
+        <div class="row mt-3">
+            <div class="col-md-3">
+                <mat-form-field class="example-full-width" [appearance]="'outline'">
+                    <mat-label>Caudal promedio de diseño (l/s) (5)</mat-label>
+                    <input DecimalNumber [disabled]="inputCriterio3_caudal" [(ngModel)]="formulario.criterio3Caudal" type="text"
+                        placeholder="" matInput>
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Módulos de tratamiento empleados (6)</mat-label>
+                    <mat-select multiple [disabled]="inputCriterio3_modulos" [(ngModel)]="modulosSeleccionados">
+
+                        <mat-option *ngFor="let item of toppingList" [value]="item">{{item}}</mat-option>
+
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="example-full-width" [appearance]="'outline'">
+                    <mat-label>Componentes del proyecto (7)</mat-label>
+                    <input [disabled]="inputCriterio3_componentes" [(ngModel)]="formulario.criterio3Componentes"
+                        type="text" placeholder="" matInput>
+                </mat-form-field>
+            </div>
+        </div>
+    </fieldset>
+</div>

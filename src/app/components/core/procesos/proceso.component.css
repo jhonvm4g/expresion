@@ -1,0 +1,14 @@
+fieldset {
+  padding: 20px;
+  border: solid 1px black;
+}
+
+legend {
+  color: black;
+  display: flex !important;
+  align-items: end !important;
+}
+
+.reset {
+  all: revert;
+}

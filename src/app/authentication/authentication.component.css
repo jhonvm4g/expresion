@@ -1,0 +1,32 @@
+.wallpaperLogin {
+  background-image: url(../../assets/img/formulario.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.containerLogin {
+  height: 100%;
+  align-items: center;
+  display: flex;
+  align-content: center;
+}
+
+.justify-content-center {
+  display: flex;
+}
+
+fieldset {
+  padding: 20px;
+  border: solid 1px black;
+}
+
+legend {
+  color: black;
+  display: flex !important;
+  align-items: end !important;
+}
+
+.reset {
+  all: revert;
+}
